@@ -28,21 +28,6 @@
       line-height: 1.8;
     }
 
-    /* ─── 装飾パーティクル ─── */
-    body::before {
-      content: '♪ ♫ ✦ ♪ ✧ ♫ ✦ ♪ ✧ ♫';
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      font-size: 1rem;
-      color: rgba(192,132,252,0.12);
-      letter-spacing: 3rem;
-      white-space: nowrap;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-      padding: 10px;
-    }
-
     /* ─── NAV ─── */
     nav {
       position: fixed;
@@ -52,18 +37,26 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 40px;
-      background: rgba(255,248,252,0.88);
+      background: rgba(255,248,252,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 2px solid var(--border);
     }
     .nav-logo {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--accent);
       text-decoration: none;
-      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .nav-logo::before { content: '🎀 '; }
+    .nav-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a {
       color: var(--muted);
@@ -91,43 +84,38 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle 400px at 20% 80%, rgba(147,197,253,0.25) 0%, transparent 60%),
-        radial-gradient(circle 350px at 80% 20%, rgba(232,121,168,0.2) 0%, transparent 60%);
+        radial-gradient(circle 400px at 20% 80%, rgba(147,197,253,0.2) 0%, transparent 60%),
+        radial-gradient(circle 350px at 80% 20%, rgba(232,121,168,0.15) 0%, transparent 60%);
       pointer-events: none;
     }
-    /* イラスト用プレースホルダー */
     .hero-illust {
-      width: 180px;
-      height: 180px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #f9c6e0, #d8b4fe);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-      margin-bottom: 32px;
+      overflow: hidden;
+      margin-bottom: 28px;
       box-shadow: 0 8px 32px rgba(192,132,252,0.3);
       border: 4px solid #fff;
       position: relative;
       z-index: 1;
     }
+    .hero-illust img { width: 100%; height: 100%; object-fit: cover; }
     .hero-eyebrow {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       letter-spacing: 0.2em;
       color: var(--accent);
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       position: relative;
       z-index: 1;
     }
     .hero h1 {
-      font-size: clamp(2rem, 5.5vw, 3.8rem);
+      font-size: clamp(1.9rem, 5vw, 3.5rem);
       font-weight: 800;
       line-height: 1.25;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       position: relative;
       z-index: 1;
-      color: var(--text);
     }
     .hero h1 span {
       background: linear-gradient(90deg, var(--accent), var(--accent2));
@@ -136,20 +124,20 @@
       background-clip: text;
     }
     .hero p {
-      max-width: 520px;
+      max-width: 500px;
       color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 36px;
+      font-size: 0.97rem;
+      margin-bottom: 32px;
       position: relative;
       z-index: 1;
     }
-    .hero-btns { position: relative; z-index: 1; }
+    .hero-btns { position: relative; z-index: 1; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
     .btn {
       display: inline-block;
-      padding: 13px 32px;
+      padding: 12px 30px;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       text-decoration: none;
       transition: all 0.25s;
       cursor: pointer;
@@ -158,32 +146,93 @@
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       color: #fff;
       border: none;
-      box-shadow: 0 4px 18px rgba(192,132,252,0.4);
+      box-shadow: 0 4px 16px rgba(192,132,252,0.4);
     }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(192,132,252,0.5); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(192,132,252,0.5); }
     .btn-outline {
       background: #fff;
       color: var(--accent);
       border: 2px solid var(--border);
-      margin-left: 12px;
     }
     .btn-outline:hover { border-color: var(--accent); background: var(--bg3); }
 
     /* ─── SECTION BASE ─── */
-    section { padding: 96px 24px; }
-    .container { max-width: 960px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
+    section { padding: 88px 24px; }
+    .container { max-width: 780px; margin: 0 auto; }
+    .section-head {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .section-head h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .section-head span {
+      font-size: 0.78rem;
       color: var(--accent);
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+    }
+
+    /* ─── WORKS ─── */
+    #works { background: var(--bg); }
+    .works-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .work-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .work-item:first-child { border-top: 1px solid var(--border); }
+    .work-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding-top: 3px;
+      white-space: nowrap;
+    }
+    .work-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .work-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
       margin-bottom: 10px;
     }
-    .section-title {
-      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
-      font-weight: 800;
-      margin-bottom: 44px;
-      color: var(--text);
+    .work-tag {
+      font-size: 0.72rem;
+      padding: 2px 10px;
+      border-radius: 50px;
+      background: var(--bg3);
+      color: var(--accent);
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+    .work-audio audio {
+      width: 100%;
+      max-width: 400px;
+      height: 36px;
+      accent-color: var(--accent);
+    }
+    .work-placeholder {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
     }
 
     /* ─── ABOUT ─── */
@@ -191,160 +240,120 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 40px;
       align-items: start;
     }
-    .about-text p { color: var(--muted); margin-bottom: 16px; }
-    .tools-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
+    .about-text p { color: var(--muted); margin-bottom: 14px; font-size: 0.95rem; }
+    .tools-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
     .tool-tag {
       background: #fff;
       border: 2px solid var(--border);
       color: var(--accent);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
-      padding: 5px 14px;
+      padding: 4px 12px;
       border-radius: 50px;
     }
-    .about-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    .about-stats { display: flex; flex-direction: column; gap: 16px; }
     .stat-card {
       background: #fff;
       border: 2px solid var(--border);
-      border-radius: 20px;
-      padding: 22px 24px;
-      box-shadow: 0 4px 16px rgba(192,132,252,0.1);
+      border-radius: 16px;
+      padding: 18px 22px;
+      box-shadow: 0 4px 14px rgba(192,132,252,0.08);
     }
     .stat-card .num {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
-    .stat-card .label { color: var(--muted); font-size: 0.88rem; }
+    .stat-card .label { color: var(--muted); font-size: 0.84rem; }
 
     /* ─── SERVICES ─── */
     #services { background: var(--bg); }
-    .services-grid {
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .service-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
     }
-    .service-card {
-      background: #fff;
-      border: 2px solid var(--border);
-      border-radius: 24px;
-      padding: 28px;
-      transition: transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 4px 16px rgba(192,132,252,0.08);
-    }
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(192,132,252,0.2); }
-    .service-icon { font-size: 2.2rem; margin-bottom: 14px; }
-    .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
-    .service-card p { color: var(--muted); font-size: 0.88rem; margin-bottom: 18px; }
-    .service-price {
-      font-size: 1.45rem;
+    .service-row:first-child { border-top: 1px solid var(--border); }
+    .service-row-left { display: flex; align-items: center; gap: 14px; }
+    .service-row-icon { font-size: 1.6rem; }
+    .service-row h3 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+    .service-row p { font-size: 0.83rem; color: var(--muted); }
+    .service-row-price {
+      font-size: 1.2rem;
       font-weight: 800;
+      white-space: nowrap;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .service-price span { font-size: 0.82rem; color: var(--muted); font-weight: 400; -webkit-text-fill-color: var(--muted); }
-    .service-features {
-      margin-top: 14px;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-    .service-features li { font-size: 0.83rem; color: var(--muted); }
-    .service-features li::before { content: '🌸 '; }
+    .service-row-price span { font-size: 0.78rem; color: var(--muted); font-weight: 400; -webkit-text-fill-color: var(--muted); }
 
     /* ─── FLOW ─── */
     #flow { background: var(--bg2); }
-    .flow-steps {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
+    .flow-steps { display: flex; flex-direction: column; position: relative; }
     .flow-steps::before {
       content: '';
       position: absolute;
-      left: 27px;
-      top: 0; bottom: 0;
+      left: 27px; top: 0; bottom: 0;
       width: 3px;
       background: linear-gradient(to bottom, var(--accent), var(--blue));
       border-radius: 4px;
     }
-    .flow-step {
-      display: flex;
-      gap: 24px;
-      padding: 0 0 40px 0;
-      position: relative;
-    }
+    .flow-step { display: flex; gap: 20px; padding: 0 0 36px 0; position: relative; }
     .step-num {
       flex-shrink: 0;
-      width: 56px;
-      height: 56px;
+      width: 54px; height: 54px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: #fff;
-      font-size: 1.1rem;
-      z-index: 1;
-      box-shadow: 0 4px 12px rgba(192,132,252,0.35);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #fff; font-size: 1rem; z-index: 1;
+      box-shadow: 0 4px 12px rgba(192,132,252,0.3);
     }
-    .step-body h3 { font-weight: 700; margin-bottom: 6px; padding-top: 12px; color: var(--text); }
-    .step-body p { color: var(--muted); font-size: 0.9rem; }
+    .step-body h3 { font-weight: 700; margin-bottom: 4px; padding-top: 12px; font-size: 0.97rem; }
+    .step-body p { color: var(--muted); font-size: 0.87rem; }
 
     /* ─── CONTACT ─── */
-    #contact {
-      background: linear-gradient(160deg, #fff0fb 0%, #ede8ff 100%);
-    }
-    .contact-wrapper {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .contact-wrapper p { color: var(--muted); margin-bottom: 36px; }
-    .contact-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .contact-note {
-      margin-top: 28px;
-      color: var(--muted);
-      font-size: 0.83rem;
-    }
+    #contact { background: linear-gradient(160deg, #fff0fb 0%, #ede8ff 100%); }
+    .contact-wrapper { text-align: center; max-width: 520px; margin: 0 auto; }
+    .contact-wrapper p { color: var(--muted); margin-bottom: 32px; font-size: 0.95rem; }
+    .contact-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .contact-note { margin-top: 24px; color: var(--muted); font-size: 0.8rem; }
 
     /* ─── FOOTER ─── */
     footer {
       text-align: center;
-      padding: 36px 24px;
+      padding: 32px 24px;
       border-top: 2px solid var(--border);
       color: var(--muted);
-      font-size: 0.83rem;
+      font-size: 0.8rem;
       background: var(--bg2);
     }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 640px) {
-      nav { padding: 12px 18px; }
-      .nav-links { gap: 18px; }
+      nav { padding: 12px 16px; }
+      .nav-links { gap: 16px; }
       .about-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2rem; }
+      .service-row { grid-template-columns: 1fr; }
+      .work-item { grid-template-columns: 1fr; gap: 6px; }
+      .work-date { font-size: 0.72rem; }
     }
   </style>
 </head>
@@ -352,9 +361,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">MIX STUDIO</a>
+  <a href="#" class="nav-logo">
+    <img src="icon.jpg" alt="logo" />
+    MIX STUDIO
+  </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+    <li><a href="#works">Works</a></li>
     <li><a href="#services">料金</a></li>
     <li><a href="#flow">依頼の流れ</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
@@ -363,9 +375,8 @@
 
 <!-- HERO -->
 <section class="hero">
-  <!-- イラスト画像ができたら src="" に画像パスを入れてください -->
   <div class="hero-illust">
-    <img src="icon.jpg" alt="キャラクター" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+    <img src="icon.jpg" alt="キャラクター" />
   </div>
   <p class="hero-eyebrow">✦ Mixing &amp; Mastering ✦</p>
   <h1>あなたの歌声を、<br /><span>プロのサウンド</span>へ。</h1>
@@ -374,16 +385,57 @@
     歌ってみた・オリジナル曲のミックス・マスタリング依頼を承ります。
   </p>
   <div class="hero-btns">
-    <a href="#contact" class="btn btn-primary">✉ 今すぐ依頼する</a>
-    <a href="#services" class="btn btn-outline">料金を見る</a>
+    <a href="#contact" class="btn btn-primary">今すぐ依頼する</a>
+    <a href="#works" class="btn btn-outline">実績を見る</a>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="container">
+    <div class="section-head">
+      <h2>Works</h2>
+      <span>実績一覧</span>
+    </div>
+    <div class="works-list">
+
+      <!-- 音源ができたら src="audio/作品名.mp3" に変更してください -->
+      <div class="work-item">
+        <div class="work-date">2026.03</div>
+        <div class="work-body">
+          <h3>サンプル曲タイトル A</h3>
+          <div class="work-tags">
+            <span class="work-tag">ミックス</span>
+            <span class="work-tag">マスタリング</span>
+            <span class="work-tag">歌ってみた</span>
+          </div>
+          <p class="work-placeholder">🎵 音源準備中...</p>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-date">2026.03</div>
+        <div class="work-body">
+          <h3>サンプル曲タイトル B</h3>
+          <div class="work-tags">
+            <span class="work-tag">ミックス</span>
+            <span class="work-tag">ピッチ補正</span>
+          </div>
+          <p class="work-placeholder">🎵 音源準備中...</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <p class="section-label">About</p>
-    <h2 class="section-title">iZotope フルスタックで<br />届ける本格サウンド</h2>
+    <div class="section-head">
+      <h2>About</h2>
+      <span>使用機材</span>
+    </div>
     <div class="about-grid">
       <div class="about-text">
         <p>
@@ -425,63 +477,58 @@
 <!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <p class="section-label">Services &amp; Pricing</p>
-    <h2 class="section-title">料金プラン</h2>
-    <div class="services-grid">
+    <div class="section-head">
+      <h2>Services</h2>
+      <span>料金プラン</span>
+    </div>
+    <div class="services-list">
 
-      <div class="service-card">
-        <div class="service-icon">🎙️</div>
-        <h3>ピッチ補正のみ</h3>
-        <p>Melodyne によるボーカルピッチ補正。自然な仕上がりを重視。</p>
-        <div class="service-price">¥2,000<span> / 曲</span></div>
-        <ul class="service-features">
-          <li>Melodyne によるピッチ補正</li>
-          <li>修正 1 回無料</li>
-          <li>MP3 納品</li>
-        </ul>
+      <div class="service-row">
+        <div class="service-row-left">
+          <div class="service-row-icon">🎙️</div>
+          <div>
+            <h3>ピッチ補正のみ</h3>
+            <p>Melodyne によるボーカルピッチ補正。自然な仕上がりを重視。</p>
+          </div>
+        </div>
+        <div class="service-row-price">¥2,000<span> 〜</span></div>
       </div>
 
-      <div class="service-card">
-        <div class="service-icon">🎚️</div>
-        <h3>ミックスのみ</h3>
-        <p>Nectar 4 + Neutron を使ったボーカル・トラックのミックス。</p>
-        <div class="service-price">¥8,000<span> 〜 / 曲</span></div>
-        <ul class="service-features">
-          <li>ボーカル EQ / コンプ処理</li>
-          <li>リバーブ・ディレイ調整</li>
-          <li>トラックバランス調整</li>
-          <li>修正 2 回無料</li>
-        </ul>
+      <div class="service-row">
+        <div class="service-row-left">
+          <div class="service-row-icon">🎚️</div>
+          <div>
+            <h3>ミックスのみ</h3>
+            <p>Nectar 4 + Neutron を使ったボーカル・トラックのミックス。</p>
+          </div>
+        </div>
+        <div class="service-row-price">¥8,000<span> 〜</span></div>
       </div>
 
-      <div class="service-card">
-        <div class="service-icon">✨</div>
-        <h3>マスタリングのみ</h3>
-        <p>Ozone 11 によるストリーミング（Spotify / YouTube）最適化。</p>
-        <div class="service-price">¥3,000<span> 〜 / 曲</span></div>
-        <ul class="service-features">
-          <li>ラウドネス正規化対応</li>
-          <li>WAV / MP3 両形式納品</li>
-          <li>修正 1 回無料</li>
-        </ul>
+      <div class="service-row">
+        <div class="service-row-left">
+          <div class="service-row-icon">✨</div>
+          <div>
+            <h3>マスタリングのみ</h3>
+            <p>Ozone 11 によるストリーミング（Spotify / YouTube）最適化。</p>
+          </div>
+        </div>
+        <div class="service-row-price">¥3,000<span> 〜</span></div>
       </div>
 
-      <div class="service-card" style="border-color: var(--accent);">
-        <div class="service-icon">🚀</div>
-        <h3>フルパッケージ</h3>
-        <p>ミックス + マスタリングをセットでお得に。一番人気のプランです。</p>
-        <div class="service-price">¥12,000<span> 〜 / 曲</span></div>
-        <ul class="service-features">
-          <li>ピッチ補正込み</li>
-          <li>ミックス フルセット</li>
-          <li>Ozone 11 マスタリング</li>
-          <li>修正 3 回無料</li>
-          <li>WAV / MP3 両形式納品</li>
-        </ul>
+      <div class="service-row">
+        <div class="service-row-left">
+          <div class="service-row-icon">🌸</div>
+          <div>
+            <h3>フルパッケージ</h3>
+            <p>ピッチ補正 + ミックス + マスタリングのフルセット。一番人気。</p>
+          </div>
+        </div>
+        <div class="service-row-price">¥12,000<span> 〜</span></div>
       </div>
 
     </div>
-    <p style="text-align:center; margin-top:32px; color: var(--muted); font-size:0.85rem;">
+    <p style="margin-top:20px; color: var(--muted); font-size:0.82rem;">
       ※ 曲の長さや構成によって変動する場合があります。まずはお気軽にご相談ください。
     </p>
   </div>
@@ -490,14 +537,16 @@
 <!-- FLOW -->
 <section id="flow">
   <div class="container">
-    <p class="section-label">How to Order</p>
-    <h2 class="section-title">依頼の流れ</h2>
+    <div class="section-head">
+      <h2>How to Order</h2>
+      <span>依頼の流れ</span>
+    </div>
     <div class="flow-steps">
       <div class="flow-step">
         <div class="step-num">1</div>
         <div class="step-body">
           <h3>お問い合わせ・ご相談</h3>
-          <p>フォームまたは X（Twitter）の DM からお気軽にご連絡ください。ご希望のプランや曲のイメージをお聞かせください。</p>
+          <p>フォームまたは X（Twitter）の DM からお気軽にご連絡ください。</p>
         </div>
       </div>
       <div class="flow-step">
@@ -511,14 +560,14 @@
         <div class="step-num">3</div>
         <div class="step-body">
           <h3>ミックス・マスタリング作業</h3>
-          <p>お打ち合わせ内容をもとに作業します。通常 2〜3 営業日以内に初回データをお送りします。</p>
+          <p>通常 2〜3 営業日以内に初回データをお送りします。</p>
         </div>
       </div>
       <div class="flow-step">
         <div class="step-num">4</div>
         <div class="step-body">
           <h3>ご確認・修正対応</h3>
-          <p>プランに応じた無料修正回数内でご要望に対応します。満足いただけるまで丁寧に対応します。</p>
+          <p>満足いただけるまで丁寧に対応します。</p>
         </div>
       </div>
       <div class="flow-step" style="padding-bottom:0">
@@ -536,22 +585,20 @@
 <section id="contact">
   <div class="container">
     <div class="contact-wrapper">
-      <p class="section-label" style="text-align:center">Contact</p>
-      <h2 class="section-title" style="text-align:center">お問い合わせ</h2>
-      <p>ご依頼・ご相談はお気軽にどうぞ。<br />まずは雰囲気や方向性のすり合わせだけでも大歓迎です。</p>
+      <div class="section-head" style="justify-content:center">
+        <h2>Contact</h2>
+        <span>お問い合わせ</span>
+      </div>
+      <p>ご依頼・ご相談はお気軽にどうぞ。<br />まずは雰囲気のすり合わせだけでも大歓迎です。</p>
       <div class="contact-buttons">
-        <!-- TODO: Google フォームの URL に差し替えてください -->
         <a href="https://forms.gle/koR7BFpnTbGdBY6PA" class="btn btn-primary" target="_blank" rel="noopener">
           Googleフォームで依頼する
         </a>
-        <!-- TODO: X アカウント名に差し替えてください -->
         <a href="https://twitter.com/messages/compose?recipient_id=mixstudio_jp" class="btn btn-outline" target="_blank" rel="noopener">
           X (Twitter) DM
         </a>
       </div>
-      <p class="contact-note">
-        ※ 返信は通常 24 時間以内を目標としています
-      </p>
+      <p class="contact-note">※ 返信は通常 24 時間以内を目標としています</p>
     </div>
   </div>
 </section>
