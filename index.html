@@ -46,17 +46,7 @@
       font-weight: 700;
       color: var(--yellow);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
       letter-spacing: 0.08em;
-    }
-    .nav-logo img {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
     }
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a {
@@ -327,12 +317,8 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="icon.jpg" alt="logo" />
-    MIX STUDIO
-  </a>
+  <a href="#" class="nav-logo">MIX STUDIO</a>
   <ul class="nav-links">
-    <li><a href="#works">Works</a></li>
     <li><a href="#services">料金</a></li>
     <li><a href="#flow">依頼の流れ</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
@@ -352,45 +338,7 @@
   </p>
   <div class="hero-btns">
     <a href="#contact" class="btn btn-primary">今すぐ依頼する</a>
-    <a href="#works" class="btn btn-outline">実績を見る</a>
-  </div>
-</section>
-
-<!-- WORKS -->
-<section id="works">
-  <div class="container">
-    <div class="section-head">
-      <h2>Works</h2>
-      <span>実績一覧</span>
-    </div>
-    <div class="works-list">
-
-      <div class="work-item">
-        <div class="work-date">2026.03</div>
-        <div class="work-body">
-          <h3>サンプル曲タイトル A</h3>
-          <div class="work-tags">
-            <span class="work-tag">ミックス</span>
-            <span class="work-tag">マスタリング</span>
-            <span class="work-tag">歌ってみた</span>
-          </div>
-          <p class="work-placeholder">— 音源準備中</p>
-        </div>
-      </div>
-
-      <div class="work-item">
-        <div class="work-date">2026.03</div>
-        <div class="work-body">
-          <h3>サンプル曲タイトル B</h3>
-          <div class="work-tags">
-            <span class="work-tag">ミックス</span>
-            <span class="work-tag">ピッチ補正</span>
-          </div>
-          <p class="work-placeholder">— 音源準備中</p>
-        </div>
-      </div>
-
-    </div>
+    <a href="#services" class="btn btn-outline">料金を見る</a>
   </div>
 </section>
 
